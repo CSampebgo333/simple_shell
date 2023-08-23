@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 
+int isatty(int fd);
 void reverse_string(char *s);
 void prompter(char **argument_count, char **environment);
 pid_t fork(void);

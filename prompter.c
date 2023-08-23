@@ -22,7 +22,10 @@ void prompter(char **argument_count, char **environment)
 
 	while (1)
 	{
-		printf("cisfun$ ");
+		if (isatty(STDIN_FILENO))
+		{
+			printf("cisfun$ ");
+		}
 
 		number_char = getline(&string, &n, stdin);
 		
@@ -38,6 +41,7 @@ void prompter(char **argument_count, char **environment)
 			{
 				string[i] = 0;
 			}
+			i++;
 		}
 		argv[0] = string;
 		id_procesus_enfant = fork();
