@@ -1,4 +1,5 @@
 #include "clement_shell.h"
+#include <sys/wait.h>
 
 /**
  * prompter: the variable wich will prompt the argument
@@ -13,7 +14,6 @@
  */
 
 #define COMMANDE_MAXIMALE 10
-
 void prompter(char **argument_count, char **environment)
 {
 	char *string = NULL;
@@ -37,7 +37,6 @@ void prompter(char **argument_count, char **environment)
 			free(string);
 			exit(EXIT_FAILURE);
 		}
-
 		i = 0;
 		while (string[i])
 		{
@@ -47,7 +46,6 @@ void prompter(char **argument_count, char **environment)
 			}
 			i++;
 		}
-
 		j = 0;
 		argv[j] = strtok(string, " ");
 		while (argv[j] != NULL)
