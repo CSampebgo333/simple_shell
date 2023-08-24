@@ -11,13 +11,16 @@
  * @number_char: the number of charater contain in the string
  * @arg: the arguments
  */
+
+#define COMMANDE_MAXIMALE 10
+
 void prompter(char **argument_count, char **environment)
 {
 	char *string = NULL;
-	int i, status;
+	int i, j, status;
 	size_t n = 0;
 	ssize_t number_char;
-	char *argv[] = {NULL, NULL};
+	char *argv[COMMANDE_MAXIMALE];
 	pid_t id_procesus_enfant;
 
 	while (1)
@@ -34,6 +37,7 @@ void prompter(char **argument_count, char **environment)
 			free(string);
 			exit(EXIT_FAILURE);
 		}
+
 		i = 0;
 		while (string[i])
 		{
@@ -43,7 +47,15 @@ void prompter(char **argument_count, char **environment)
 			}
 			i++;
 		}
-		argv[0] = string;
+
+		j = 0;
+		argv[j] = strtok(string, " ");
+		while (argv[j] != NULL)
+		{
+			j++;
+			argv[j] = strtok(NULL, " ");
+		}
+		
 		id_procesus_enfant = fork();
 		if (id_procesus_enfant == -1)
 		{
