@@ -31,7 +31,6 @@ void prompter(char **argument_count, char **environment)
 		}
 
 		number_char = getline(&string, &n, stdin);
-		
 		if (number_char == -1)
 		{
 			free(string);
@@ -46,9 +45,10 @@ void prompter(char **argument_count, char **environment)
 			}
 			i++;
 		}
+
 		j = 0;
 		argv[j] = strtok(string, " ");
-		while (argv[j] != NULL)
+		while (argv[j])
 		{
 			j++;
 			argv[j] = strtok(NULL, " ");
