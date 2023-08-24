@@ -5,7 +5,6 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdlib.h>
 #include <sys/wait.h>
 #include <string.h>
 
@@ -15,5 +14,7 @@ void prompter(char **argument_count, char **environment);
 pid_t fork(void);
 char *strtok(char *str, const char *delim);
 char *strtok_r(char *str, const char *delim, char **saveptr);
+int execve(const char *pathname, char *const argv[],
+char *const envp[]);
 
 #endif

@@ -10,10 +10,11 @@
  * @i: itinerance
  * @status: To get the staus of the process
  * @number_char: the number of charater contain in the string
- * @arg: the arguments
+ * @argv: the arguments
  */
 
 #define COMMANDE_MAXIMALE 10
+
 void prompter(char **argument_count, char **environment)
 {
 	char *string = NULL;
